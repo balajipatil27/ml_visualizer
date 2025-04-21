@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Scraper</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-white">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-white" href="/">SmartAnalysis</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white fw-bold" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white fw-bold" href="/quiz">Quiz</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fw-bold" href="/learn">Learn</a>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link text-info fw-bold" href="/scrape">Scraper</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-info fw-bold" href="/aboutus">About Us</a>
+          </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container mt-5 p-4 rounded bg-black shadow">
+  <h2 class="mb-4 fw-bold text-white">Website Content Extractor</h2>
+  <p> The Web Text Extractor is an essential feature of our web scraping application. This tool 
+    allows users to effortlessly upload an article or paste a website link to extract all the necessary 
+    details from the page. Designed with simplicity in mind, it processes the webpage to retrieve
+     the core content, making it easy to capture relevant text, data, and structured tables. Whether you're gathering 
+     information for research or need specific content for your projects, our Web Text Extractor streamlines the process,
+      saving you time and effort by providing clean, organized outputs. This tool is fully 
+    integrated into our platform, providing a seamless experience for users seeking to extract useful content from any webpage.</p>
+  <form id="scrapeForm">
+    <div class="mb-3">
+      <input type="url" class="form-control" id="url" placeholder="Paste the article or webpage URL here" required>
+    </div>
+    <button type="submit" class="btn btn-primary fw-bold">Scrape</button>
+  </form>
+  <hr class="border-light">
+  <div id="results" class="pt-3"></div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Scraper Logic -->
+<script>
+document.getElementById('scrapeForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const url = document.getElementById('url').value;
+  const response = await fetch('/scrape', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ url })
+  });
+
+  const data = await response.json();
+  const resultDiv = document.getElementById('results');
+
+  if (data.error) {
+    resultDiv.innerHTML = `<p class='text-danger fw-bold'>${data.error}</p>`;
+    return;
+  }
+
+  let html = `
+    <h4 class="text-success fw-bold">${data.title}</h4>
+    <p><strong>Description:</strong> ${data.description}</p>
+    <p><strong>Meta Keywords:</strong> ${data.keywords}</p>
+    <p><strong>First Paragraph:</strong> ${data.first_paragraph}</p>
+    <h5 class="mt-4 fw-bold">Headings:</h5>
+  `;
+
+  for (let [tag, list] of Object.entries(data.headings)) {
+    if (list.length > 0) {
+      html += `<strong>${tag.toUpperCase()}</strong><ul>`;
+      list.forEach(text => {
+        html += `<li>${text}</li>`;
+      });
+      html += `</ul>`;
+    }
+  }
+
+  html += `<h5 class="mt-4 fw-bold">Hyperlinks:</h5><ul>`;
+  data.links.forEach(link => {
+    html += `<li><a href="${link}" target="_blank" class="text-info">${link}</a></li>`;
+  });
+  html += `</ul>`;
+
+  html += `<h5 class="mt-4 fw-bold">Image Sources:</h5><ul>`;
+  data.images.forEach(src => {
+    html += `<li><a href="${src}" target="_blank" class="text-warning">${src}</a></li>`;
+  });
+  html += `</ul>`;
+
+  resultDiv.innerHTML = html;
+});
+</script>
+
+</body>
+</html>

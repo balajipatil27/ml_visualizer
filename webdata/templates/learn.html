@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Machine Learning Algorithms</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #121212;
+      color: #ffffff;
+    }
+    .navbar {
+      background-color: #1f1f1f;
+    }
+    .navbar-brand {
+      color: #ffffff;
+      font-weight: bold;
+    }
+    .navbar-nav .nav-link {
+      color: #ffffff;
+      font-weight: bold; 
+    }
+    .navbar-nav .nav-link:hover {
+      color: #61dafb;
+    }
+    .main-heading {
+      text-align: center;
+      margin: 3rem 0 2rem;
+      color: #ffffff;
+    }
+    .card {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .use-case {
+      font-style: italic;
+      color: #a0ffa0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Smart Analysis</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon text-white"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/index">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/quiz">Quiz</a></li>
+          <li class="nav-item"><a class="nav-link" href="/learn">learn</a></li>
+          <li class="nav-item"><a class="nav-link" href="/scrape">Scrape</a></li>
+          <li class="nav-item"><a class="nav-link" href="/aboutus">About Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Heading -->
+  <div class="container">
+    <h1 class="main-heading">Machine Learning Algorithms</h1>
+
+    <!-- Algorithm Cards -->
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+
+      <!-- 1. Linear Regression -->
+      <div class="col">
+        <div class="card h-100 p-3">
+          <h4 class="card-title">Linear Regression</h4>
+          <div class="card-body">
+            <p class="card-text">
+              Linear regression is a foundational algorithm in supervised learning used to model the relationship between a dependent variable and one or more independent variables. It operates by fitting a linear equation to observed data, typically using the least squares method to minimize the residuals between actual and predicted values. This model is interpretable and computationally efficient, making it a favorite starting point for many regression problems. However, linear regression assumes a linear relationship between variables, homoscedasticity, and no multicollinearity. It’s sensitive to outliers and may underperform on complex datasets with non-linear patterns. Despite this, it remains a popular baseline due to its simplicity and effectiveness in many domains.
+            </p>
+            <p class="use-case">Use case: Predicting housing prices based on size, location, and number of rooms.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Logistic Regression -->
+      <div class="col">
+        <div class="card h-100 p-3">
+          <h4 class="card-title">Logistic Regression</h4>
+          <div class="card-body">
+            <p class="card-text">
+              Logistic regression is used for classification problems where the output is binary or categorical. It models the probability of a certain class or event existing, such as pass/fail, win/lose, or spam/not spam. The algorithm uses the sigmoid function to map predicted values to probabilities between 0 and 1. It is highly interpretable and efficient, especially on linearly separable datasets. However, logistic regression can struggle with complex, non-linear boundaries and is sensitive to multicollinearity and outliers. It is widely used in various industries including healthcare, finance, and marketing for tasks such as risk prediction and user behavior modeling.
+            </p>
+            <p class="use-case">Use case: Predicting whether a customer will purchase a product based on their profile.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Decision Tree -->
+      <div class="col">
+        <div class="card h-100 p-3">
+          <h4 class="card-title">Decision Tree</h4>
+          <div class="card-body">
+            <p class="card-text">
+              Decision trees are supervised learning algorithms used for both classification and regression. They work by splitting data into branches based on feature values, forming a tree-like structure. Each internal node tests a feature, each branch represents a decision rule, and each leaf node is a final prediction. Decision trees are intuitive, easy to visualize, and require minimal preprocessing. They handle both numerical and categorical data and are robust to feature scaling. However, they are prone to overfitting, especially with deep trees, and can be unstable to small changes in the data. Pruning and setting constraints like maximum depth can help mitigate overfitting.
+            </p>
+            <p class="use-case">Use case: Determining whether a loan should be approved based on financial criteria.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Support Vector Machine -->
+      <div class="col">
+        <div class="card h-100 p-3">
+          <h4 class="card-title">Support Vector Machine (SVM)</h4>
+          <div class="card-body">
+            <p class="card-text">
+              SVM is a powerful supervised learning algorithm used for classification and regression. It works by finding the optimal hyperplane that separates data into different classes with the maximum margin. For non-linear data, it uses kernel functions (like RBF or polynomial) to transform data into higher dimensions. SVMs are effective in high-dimensional spaces and in situations where the number of dimensions exceeds the number of samples. However, they can be computationally expensive and sensitive to parameter selection. Despite this, they offer strong performance in applications like bioinformatics, image classification, and text categorization.
+            </p>
+            <p class="use-case">Use case: Classifying emails as spam or not spam.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. K-Nearest Neighbors -->
+      <div class="col">
+        <div class="card h-100 p-3">
+          <h4 class="card-title">K-Nearest Neighbors (KNN)</h4>
+          <div class="card-body">
+            <p class="card-text">
+              KNN is a simple, instance-based learning algorithm that classifies new instances based on the majority label among their K nearest neighbors in the feature space. It is non-parametric and lazy, meaning it doesn’t make assumptions about the data and doesn’t learn a model until prediction time. While KNN is intuitive and effective for small datasets with well-separated classes, it is computationally expensive for large datasets. It is sensitive to irrelevant features and requires proper feature scaling. Despite these drawbacks, KNN is widely used for pattern recognition, recommendation systems, and anomaly detection.
+            </p>
+            <p class="use-case">Use case: Recommending products based on user behavior similarity.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Naive Bayes -->
+      <div class="col">
+        <div class="card h-100 p-3">
+          <h4 class="card-title">Naive Bayes</h4>
+          <div class="card-body">
+            <p class="card-text">
+              Naive Bayes is a probabilistic classifier based on Bayes’ theorem with a strong assumption of feature independence. It is highly scalable and performs well with high-dimensional data, especially text classification problems. Despite its “naive” assumption, it often works surprisingly well in practice. Naive Bayes models are fast, simple, and require a small amount of training data. However, they can struggle when features are highly correlated or when zero probabilities occur (which can be handled with smoothing techniques). Its main applications are spam detection, document classification, and sentiment analysis.
+            </p>
+            <p class="use-case">Use case: Classifying customer reviews as positive or negative.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Random Forest -->
+      <div class="col">
+        <div class="card h-100 p-3">
+          <h4 class="card-title">Random Forest</h4>
+          <div class="card-body">
+            <p class="card-text">
+              Random Forest is an ensemble learning technique that builds multiple decision trees and combines their outputs for improved accuracy and robustness. Each tree is trained on a random subset of data and features, reducing variance and helping prevent overfitting. It works well for both classification and regression tasks, handles missing values, and provides insights into feature importance. Although it sacrifices interpretability for performance, it is widely used in applications requiring high accuracy such as fraud detection, medical diagnosis, and recommendation engines.
+            </p>
+            <p class="use-case">Use case: Predicting loan default risk using financial and demographic data.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Gradient Boosting -->
+      <div class="col">
+        <div class="card h-100 p-3">
+          <h4 class="card-title">Gradient Boosting</h4>
+          <div class="card-body">
+            <p class="card-text">
+              Gradient Boosting is an ensemble method that builds models sequentially, each correcting the errors of the previous ones. It uses a loss function to optimize and typically employs decision trees as weak learners. Though slower to train, it delivers state-of-the-art performance on many structured data problems. It is sensitive to overfitting and requires careful tuning of hyperparameters like learning rate, number of trees, and tree depth. Popular implementations like XGBoost and LightGBM provide scalable and efficient versions. It is widely used in competitions and production systems.
+            </p>
+            <p class="use-case">Use case: Fraud detection in online payment systems.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. K-Means Clustering -->
+      <div class="col">
+        <div class="card h-100 p-3">
+          <h4 class="card-title">K-Means Clustering</h4>
+          <div class="card-body">
+            <p class="card-text">
+              K-Means is an unsupervised learning algorithm used for partitioning data into K distinct clusters based on feature similarity. It works by initializing centroids, assigning points to the nearest centroid, and updating centroids iteratively. It is fast and scalable for large datasets but assumes spherical clusters of similar size. It is sensitive to initial centroid positions and outliers, and choosing the right K is critical. K-Means is widely used for market segmentation, customer analysis, and image compression.
+            </p>
+            <p class="use-case">Use case: Grouping customers based on purchasing habits for targeted marketing.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. Principal Component Analysis -->
+      <div class="col">
+        <div class="card h-100 p-3">
+          <h4 class="card-title">Principal Component Analysis (PCA)</h4>
+          <div class="card-body">
+            <p class="card-text">
+              PCA is an unsupervised technique for reducing the dimensionality of datasets while retaining the most important variance in the data. It transforms the original features into a new set of uncorrelated variables called principal components. PCA improves visualization, reduces computational costs, and can improve model performance when dealing with high-dimensional data. However, it assumes linear relationships and may result in loss of interpretability since components are linear combinations of original features. PCA is widely used in fields like bioinformatics, finance, and image processing.
+            </p>
+            <p class="use-case">Use case: Reducing dimensionality of gene expression data for visualization.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

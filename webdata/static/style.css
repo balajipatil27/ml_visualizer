@@ -1,0 +1,86 @@
+body {
+  font-family: Arial, sans-serif;
+  
+  background-color: #967272;
+}
+.main_heading{
+  display: flex;
+  justify-content: center;
+  font-size: 5rem;
+  align-items: center;
+  height: 6rem;
+  width: 100%;
+}
+.main-para{
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  
+  align-items: center;
+  width: 100%;
+
+}
+#dataset{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-size: 2rem;
+  
+  align-items: center;
+}
+.table {
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.table td, .table th {
+  border: 1px solid #ccc;
+  padding: 4px 8px;
+}
+
+h1 {
+  color: #2c3e50;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e1e1e;
+  padding: 1rem 2rem;
+  color: #ffffff;
+  border-bottom: 1px solid #333;
+  border-radius: 20px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00ffff;
+}
+
+.labe{
+  font-size: medium;
+}
+
+#filechoose{
+  font-size: 2rem;
+  margin: 0 2rem 2rem 2rem;
+
+}
